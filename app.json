@@ -1,0 +1,6 @@
+{
+  "name": "Gordon's LaunchDarkly Demo",
+  "description": "Demonstrating LaunchDarkly features toggling and user restrictions.",
+  "repository": "https://github.com/90rdon/launchydarkly-demo.git",
+  "keywords": ["node", "express", "launchdarkly"]
+}

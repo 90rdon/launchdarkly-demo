@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <% include ../partials/header.ejs %>
+  </head>
+  <body>
+    <div class="container theme-showcase" role="main">
+      <div class="page-header">
+        <h1>Welcome to LaunchDarkly</h1>
+      </div>
+      <div class="row">
+        <div class="jumbotron">
+            <h2>Log in as: Sally</h2>
+            <p>Sally should have access to released features on production and features ready for her to test.</p>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary feature-one">
+            <div class="panel-heading">
+              <h3 class="panel-title">Features in Production</h3>
+            </div>
+            <div class="panel-body">
+              All users including customers should have access to this feature.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-default feature-two">
+            <div class="panel-heading">
+              <h3 class="panel-title">Features in development</h3>
+            </div>
+            <div class="panel-body">
+              This feature is in development phase. Only "dev" group have access to this feature.
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-warning feature-three">
+            <div class="panel-heading">
+              <h3 class="panel-title">Features in testing</h3>
+            </div>
+            <div class="panel-body">
+              Development has been completed. This feature can be tested by the "testing" group.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+            <a href="/">
+            <button type="button" class="btn btn-primary">Home</button>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var user = window.ldUser;
+      console.log(`Clients initialized`);
+      var client = LDClient.initialize(window.ldClientsideId, user, {
+        bootstrap: window.ldBootstrap
+      });
+
+      client.on('ready', refresh);
+
+
+      function refresh() {        
+        var allFlags = client.allFlags(user);
+        Object.keys(allFlags).map((flag) => {
+          var selector = '.' + flag;
+          if (allFlags[flag]) {
+            document.querySelector(selector).style.display = 'block';
+          } else {
+            document.querySelector(selector).style.display = 'none';
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

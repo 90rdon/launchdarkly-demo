@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <% include ../partials/header.ejs %>
+  </head>
+  <body>
+    <div class="container theme-showcase" role="main">
+      <div class="page-header">
+        <h2>Welcome to Gordon's LaunchDarkly Demo</h2>
+      </div>
+      <div class="row">
+        <div class="jumbotron">
+          <h2>Log in as:</h2>
+          <p>Each user has a different use case.</p>
+          <div class="list-group">
+            <a href="/one" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h3 class="mb-1">Bob</h3>
+              </div>
+              <p class="mb-1">Bob is a paying customer. He has access to all production features.</p>
+            </a>
+            <a href="/two" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h3 class="mb-1">Sally</h3>
+              </div>
+              <p class="mb-1">Sally test new features after it has been developed by George.</p>
+            </a>
+            <a href="/three" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h3 class="mb-1">George</h3>
+              </div>
+              <p class="mb-1">George is a developer. He is responsible for creating new features.</p>
+            </a>            
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
